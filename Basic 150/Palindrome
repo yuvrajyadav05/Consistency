@@ -1,0 +1,19 @@
+public class Palindrone {
+    public static void main(String[] args) {
+        String t="musksum";
+        System.out.println(ispalindrone(t));
+
+    }
+    public static boolean ispalindrone(String t){
+        int i=0;
+        int j=t.length()-1;
+        while (i<j){
+            if (t.charAt(i)!=t.charAt(j)){//Agr barabar nhi hai
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+}
