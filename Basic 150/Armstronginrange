@@ -1,0 +1,29 @@
+public class ArmstrongNumbersInRange {
+
+    public static void main(String[] args) {
+        int start = 1;  
+        int end = 1000;  
+        int count = 0;  
+
+        System.out.println("Armstrong numbers between " + start + " and " + end + " are:");
+
+        // Loop through the numbers from start to end
+        for (int i = start; i <= end; i++) {
+            int num = i;  // Copy of the current number
+            int sum = 0;  
+            
+            while (num > 0) {
+                int digit = num % 10;  // Get the last digit
+                sum = sum + (digit * digit * digit);  // Add the cube of the digit to the sum
+                num = num / 10;  // Remove the last digit
+            }
+
+            if (sum == i) {
+                System.out.println(i);  // Print Armstrong number
+                count++;  // Increase the count
+            }
+        }
+
+        System.out.println("Total Armstrong numbers between " + start + " and " + end + ": " + count);
+    }
+}
