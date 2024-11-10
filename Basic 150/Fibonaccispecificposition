@@ -1,0 +1,29 @@
+public class FibonacciNumber {
+    public static int fibonacci(int position) {
+        if (position <= 0) {
+            throw new IllegalArgumentException("Position must be a positive integer.");
+        }
+        if (position == 1) {
+            return 1; // The first position corresponds to 0
+        }
+        if (position == 2) {
+            return 2; // The second position corresponds to 1
+        }
+
+        int a = 0, b = 1;
+        int fib = 0;
+        for (int i = 2; i <= position; i++) {
+            fib = a + b;
+            a = b;
+            b = fib;
+        }
+        return fib;
+    }
+
+    public static void main(String[] args) {
+        int position = 6; // Change this value for different positions
+
+        int result = fibonacci(position);
+        System.out.println("The Fibonacci number at position " + position + " is: " + result);
+    }
+}
