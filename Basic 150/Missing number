@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+    // Function to find missing numbers in the sequence
+    public static List<Integer> findMissingNumbers(int[] sequence, int n) {
+        // Create a list to store missing numbers
+        List<Integer> missingNumbers = new ArrayList<>();
+        
+        // Sort the array to make sure numbers are in order
+        java.util.Arrays.sort(sequence);
+
+        // Check for missing numbers from 1 to n
+        int expectedNumber = 1;
+        for (int num : sequence) {
+            while (expectedNumber < num) {
+                missingNumbers.add(expectedNumber); // Add missing number
+                expectedNumber++;
+            }
+            expectedNumber++; // Skip the current number
+        }
+        
+        // If there are numbers left after the loop
+        while (expectedNumber <= n) {
+            missingNumbers.add(expectedNumber);
+            expectedNumber++;
+        }
+
+        return missingNumbers;
+    }
+
+    public static void main(String[] args) {
+        // Input sequence and n
+        int[] sequence = {1, 2, 4, 5};
+        int n = 6;
+
+        // Output the missing numbers in the sequence
+        List<Integer> missingNumbers = findMissingNumbers(sequence, n);
+        System.out.println("The missing numbers are: " + missingNumbers);
+    }
+}
